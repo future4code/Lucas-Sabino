@@ -152,6 +152,19 @@ function retornaArrayOrdenadoAlfabeticamente(consultas) {
 }
 
 // EXERCÍCIO 15B
-function retornaArrayOrdenadoPorData(consultas) {
-   
-}
+function retornaArrayOrdenadoPorData(consultas) { 
+    let consultaOrdenada = consultas.sort(function (a, b) {
+        let arrayDataA = a.dataDaConsulta.split("/")
+        let dataA = new Date(arrayDataA[2], arrayDataA[1], arrayDataA[0]).getTime()
+        let arrayDataB = b.dataDaConsulta.split("/")
+        let dataB = new Date(arrayDataB[2], arrayDataB[1], arrayDataB[0]).getTime()
+        if (dataA > dataB) {
+          return 1
+        }
+        if (dataA < dataB) {
+          return -1
+        }
+        return 0
+      })
+      return consultaOrdenada
+    }
