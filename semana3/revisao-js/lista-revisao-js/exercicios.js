@@ -122,17 +122,18 @@ function retornaPessoasAutorizadas(pessoas) {
 
 // EXERCÍCIO 13B
 function retornaPessoasNaoAutorizadas(pessoas) {
-    
+    let semPermissao = pessoas.filter(pessoas => pessoas.altura < 1.5 || pessoas.idade <= 14 || pessoas.idade > 60)
+    return semPermissao
 }
 
 // EXERCÍCIO 14
 function retornaContasComSaldoAtualizado(contas) {
-
+    
 }
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+   
 }
 
 // EXERCÍCIO 15B
