@@ -31,7 +31,9 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-    
+    let i = 0
+    const numerosQuadrado = array.filter(array => array % 2 ===0).map(array => array * array)
+    return numerosQuadrado
 }
 
 // EXERCÍCIO 06
