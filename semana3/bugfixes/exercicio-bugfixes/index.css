@@ -129,3 +129,9 @@ td button {
 #back-button:hover {
     background-color: #635a3d
 }
+
+.separar-texto{
+    margin-top: 50px;
+    padding-top: 50px;
+    
+}
