@@ -17,6 +17,8 @@ h2 {
 }
 
 input {
+    border: none;
+    border-bottom: 1px solid black;
     height: 20px;
     width: 500px;
 }
@@ -155,3 +157,4 @@ div table tr td button:active{
     background-color: black;
     color: white;
 }
+
