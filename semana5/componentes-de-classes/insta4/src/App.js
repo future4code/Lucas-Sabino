@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import Post from './components/Post/Post';
+import { SecaoComentario } from './components/SecaoComentario/SecaoComentario';
 
 const MainContainer = styled.div`
   display: flex;
