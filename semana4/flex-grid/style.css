@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.icone{
+    height: 20px;
+}
+
+.page-flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+    background-color: mediumvioletred;
+    height: 40px;
+    padding: 8px;
+}
+
+nav{
+    display: flex;
+    background-color: #f2d0e0;
+    flex-direction: column;
+    padding-top: 15px;
+    padding-left: 10px;
+    width: 300px;
+}
+
+section{
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+section p{
+    display: flex;
+    flex-grow: 1;
+    padding-left: 10px;
+}
+
+main{
+    display: flex;
+}
+
+nav button{
+    background-color: #f2d0e0;
+    border: none;
+}
+
+nav button img{
+    height: 20px;
+}
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    background-color: mediumvioletred;
+    height: 40px;
+    padding: 8px;
+}
+
+.imagem-bolo{
+    padding-bottom: 10px;
+    display: grid;
+    width: 250px;
+}
+
+.div-imagens{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 50%;
+    gap: 20px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.box-imagens{
+    justify-content: center;
+    width:fit-content;
+    height: fit-content;
+    box-shadow: 2px 2px 5px 0px darkgray;
+}
+
