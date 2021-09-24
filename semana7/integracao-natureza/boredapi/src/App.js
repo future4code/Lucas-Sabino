@@ -13,8 +13,8 @@ const ContainerAtividade = styled.div`
   `
 
 const Botao = styled.button`
-  width: 100px;
-  align-self: center;
+  width: 150px;
+  margin-top: 10px;
 `
 
 export default class App extends react.Component {
@@ -33,14 +33,14 @@ export default class App extends react.Component {
     })
   }
   render(){
-
-    const {activity, type, participants, price} = this.state.activity
-
+    
+    const {activity, type, participants, price} = this.state.activity;
+    
     return (
       <ContainerAtividade>
         <h1>Are you bored? 🤡</h1>
         <Filter />
-        <Botao onClick={this.getActivity}>Clique aqui</Botao>
+        <Botao onClick={this.getActivity}>Atividade aleatória? <br/>Clique aqui</Botao>
         <hr />
         <h3>Atividade ✨</h3>
         <p>Nome: {activity}</p>
