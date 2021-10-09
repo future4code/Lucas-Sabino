@@ -8,11 +8,13 @@ export const ContainerPerfil = styled.div`
     width: 300px;
     box-shadow: 0px 5px 12px black;
     margin: 2px 15px 15px;
+    border-radius: 15px ;
 `
 
 export const ContainerFoto = styled.img`
     height: 350px;
     width: 100%;
+    border-radius: 15px ;
 `
 
 export const Texto = styled.div`
@@ -46,6 +48,7 @@ export const BotaoVermelho =styled.button`
 	font-weight:bold;
 	padding:16px 17px;
 	text-shadow:0px 1px 0px #2f6627;
+    padding-bottom: 10px;
 
     :hover {
 	background:linear-gradient(to bottom, #FFAAA7 5%, red 100%);
@@ -87,6 +90,7 @@ export const Botoes = styled.div`
     display: flex;
     width: 300px;
     justify-content: space-evenly;
+    margin-bottom: 15px;
 `
 
 export default {ContainerPerfil, ContainerFoto, Texto, BotaoVermelho, BotaoVerde, Bio, NomeEIdade, Botoes}

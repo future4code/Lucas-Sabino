@@ -48,6 +48,7 @@ const Perfis = () => {
         axios.put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:${aluno}/clear`)
         .then((res) => {
             console.log(res)
+            getPerfil()
         })
         .catch((err)=>{
             console.log(err.response)
@@ -56,20 +57,31 @@ const Perfis = () => {
 
     return(
         <div>
-            <ContainerPerfil>
-                <ContainerFoto src={perfil.photo}/>
-                <Texto>
-                    <NomeEIdade>{perfil.name}, {perfil.age} </NomeEIdade>
-                    <Bio>{perfil.bio}</Bio>
-                </Texto>
-            </ContainerPerfil>
-            <Botoes>
-                <BotaoVermelho onClick={escolhaFalse}><img src={dislike}/></BotaoVermelho>
-                <BotaoVerde onClick={escolhaTrue}><img src={like}/></BotaoVerde>
-            </Botoes>
+            {perfil ? 
+            <div>
+                <ContainerPerfil>
+                    <ContainerFoto src={perfil.photo}/>
+                    <Texto>
+                        <NomeEIdade>{perfil.name}, {perfil.age} </NomeEIdade>
+                        <Bio>{perfil.bio}</Bio>
+                    </Texto>
+                </ContainerPerfil>
+                <Botoes>
+                    <BotaoVermelho onClick={escolhaFalse}><img src={dislike}/></BotaoVermelho>
+                    <BotaoVerde onClick={escolhaTrue}><img src={like}/></BotaoVerde>
+                </Botoes>
+            </div>
+            :
+            <div>
                 <hr/>
+                <span>VIXE, acabou a galera por aqui. Tenta limpar e começar novamente! 💕</span>
+                <br/>
+                <br/>
+                <br/>
                 <button onClick={limparTudo}>LIMPAR</button>
+            </div>
+            }
         </div>
-    )
-}
-export default Perfis
+            )
+        }
+        export default Perfis
