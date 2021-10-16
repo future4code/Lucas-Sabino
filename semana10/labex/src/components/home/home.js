@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <div>
             <ContainerHome>
-                <img src={back} width="100%" height="100%"></img>
+                <img src={back} width="100%" height="100%" alt="Background"></img>
                 <button onClick={goToListTrip}>ListTrip</button>
                 <button onClick={goToLogin}>Login</button>
             </ContainerHome>

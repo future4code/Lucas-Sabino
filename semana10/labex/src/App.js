@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div>
       <Header>
-          <a href="./">
+          <a href="/">
               <img src={logo} alt="logo de foguete" width="50" height="50"/>
           </a>
           <h1>LabeTrip</h1>

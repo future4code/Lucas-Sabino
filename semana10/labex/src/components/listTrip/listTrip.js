@@ -1,29 +1,9 @@
 import { useHistory } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import useGetTrip from "../../hooks/useHook";
+import AplicationForm from "../aplicationForm/aplicationForm";
 
-const ListTrip = () => {
-    const aluno = "lucas-sabino-maryam"
-    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/:${aluno}/trips`
-    const [list, setList] = useState([])
-
-    const getList = () => {
-
-            axios
-            .get(url)
-            .then((res) => {
-                setList(res)
-                console.log(res)
-                console.log(list)
-            })
-            .catch((err) => {
-                console.log(err.response)
-            })
-    }
-    
-    useEffect(()=>{
-        getList()
-    }, [])
+export const ListTrip = () => {    
+    const [list] = useGetTrip()
 
     const history = useHistory()
     
@@ -31,14 +11,26 @@ const ListTrip = () => {
         history.goBack()
     }
 
-    const goToAplicationForm = () => {
-        history.push("/aplicationForm")
+    const goToAplicationForm = (id) => {
+        history.push(`/aplicationForm/${id}`)
     }
 
+    const renderListTrip = list.map((trip) => {
         return (
-            <div>
-            ListTrip
-            <p></p>
+            <a key={trip.id} value={trip.id} onClick={() => AplicationForm(trip.id)}>
+                <p>Nome: {trip.name}</p>
+                <p>Descrição: {trip.description}</p>
+                <p>Planeta: {trip.planet}</p>
+                <p>Duração: {trip.durationInDays}</p>
+                <p>Data: {trip.date}</p>
+            </a>
+        )
+    })
+    
+    return (
+        list.length === null ?  <p> Não há viagens </p> : 
+        <div>
+            {renderListTrip}
             <button onClick={goBack}>Voltar</button>
             <button onClick={goToAplicationForm}>AplicationForm</button>
         </div>
