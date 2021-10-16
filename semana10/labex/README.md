@@ -1,3 +1,8 @@
+Wireframe: 
+
+[LabeX-Wireframe.pdf](https://github.com/future4code/Lucas-Sabino/files/7332809/LabeX-Wireframe.pdf)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
