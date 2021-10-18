@@ -2,6 +2,8 @@ import { useHistory } from "react-router";
 import deleteTrip from "../../hooks/deleteTrip";
 import useGetTrip from "../../hooks/useHook";
 import { useEffect, useState } from "react";
+import lixeira from "../../img/trash.svg"
+import { ContainerAdmin, PaginaAdmin } from "./styled";
 
 const AdminPage = () => {
     
@@ -17,7 +19,7 @@ const AdminPage = () => {
     const history = useHistory()
     
     const goBack = () => {
-        history.goBack()
+        history.push("/")
     }  
     
     const detalhesTrip = (prop) => {
@@ -36,22 +38,24 @@ const AdminPage = () => {
 
     const renderAdminList = list.map((adminTrip) => {
         return (
-            <div>
+            <ContainerAdmin>
                 <a key={adminTrip.id} onClick={() => detalhesTrip(adminTrip.id)}>{adminTrip.name}</a> 
-                <button onClick={() => deleteTrip(adminTrip.id)}>
-                    apagar
-                </button>
-            </div>
+                <a onClick={() => deleteTrip(adminTrip.id)}>
+                    <img src={lixeira} alt="trash icon"/>
+                </a>
+            </ContainerAdmin>
         )
     })
     return (
-        <div>
-            AdminPage
+        <PaginaAdmin>
+            <h1>Painel Administrativo</h1>
             {renderAdminList}
-            <button onClick={goBack}>Voltar</button>
-            <button onClick={goToLogin}>Logout</button>
-            <button onClick={goToCreateTrip}>CreateTrip</button>
-        </div>
+            <div>
+                <button onClick={goBack}>Voltar</button>
+                <button onClick={goToLogin}>Logout</button>
+                <button onClick={goToCreateTrip}>CreateTrip</button>
+            </div>
+        </PaginaAdmin>
     )
 }
 

@@ -9,7 +9,6 @@ export const Header = styled.header`
     margin-left: 15px;
     margin-right: 20px;
     margin-bottom: -10px;
-    background-color: red;
 `
 
 export default {Header}

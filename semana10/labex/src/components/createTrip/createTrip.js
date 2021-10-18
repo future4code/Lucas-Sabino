@@ -2,6 +2,7 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { BotoesCreate, ContainerCreateTrip } from "./styled";
 
 const CreateTrip = () => {
 
@@ -31,9 +32,8 @@ const CreateTrip = () => {
 
         axios.post(url, form, header)
             .then((res) => {
-                console.log(res)
+                alert("Sucesso")
             }).catch((err) => {
-                console.log(url, token, form)
                 console.log(err.response)
             })
     }
@@ -54,14 +54,18 @@ const CreateTrip = () => {
     }
 
     return (
-        <div>
-            CreateTrip
+        <ContainerCreateTrip>
+            <BotoesCreate>
+                <button onClick={goBack}>Voltar</button>
+                <h1>Criar Viagem</h1>
+                <button onClick={goToLogin}>Logout</button>
+            </BotoesCreate>
             <form onSubmit={newTrip}>
                 <input 
                     value={form.name} 
                     name="name" 
                     placeholder="Nome"
-                    pattern="[a-z]{5,}"
+                    pattern="[A-Z + a-z]{5,}"
                     required
                     onChange={formulario}
                     />
@@ -82,9 +86,7 @@ const CreateTrip = () => {
                 <input name="durationInDays" onChange={formulario} placeholder="Duração em dias" type="number" required/>
                 <button>Criar</button>
             </form>
-            <button onClick={goBack}>Voltar</button>
-            <button onClick={goToLogin}>Logout</button>
-        </div>
+        </ContainerCreateTrip>
     )
 }
 

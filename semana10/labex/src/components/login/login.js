@@ -1,6 +1,8 @@
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import backgroundForm from "../../img/background-spaceman.jpg"
+import { ContainerLogin, FormLogin } from "./styled";
 
 const Login = () => {
 
@@ -42,9 +44,9 @@ const Login = () => {
     }
 
     return (
-        <div>  
-            Login
-            <form onSubmit={handleLogin}>
+        <ContainerLogin>  
+            <img src={backgroundForm} alt="background"/>
+            <FormLogin onSubmit={handleLogin}>
                 <input 
                     name="email" 
                     type="email" 
@@ -61,10 +63,12 @@ const Login = () => {
                     placeholder="Senha" 
                     required 
                 />
-                <button>Submit</button>
-            </form>
-            <button onClick={goBack}>Voltar</button>
-        </div>
+                <div>
+                    <button>Entrar</button>
+                    <button onClick={goBack}>Voltar</button>
+                </div>
+            </FormLogin>
+        </ContainerLogin>
     )
 }
 

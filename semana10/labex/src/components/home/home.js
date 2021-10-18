@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router';
-import {ContainerHome} from './styled';
+import {ContainerHome, BotaoLista, BotaoLogin} from './styled';
 import back from "../../img/background-space.jpg"
 
 
@@ -19,8 +19,8 @@ const Home = () => {
         <div>
             <ContainerHome>
                 <img src={back} width="100%" height="100%" alt="Background"></img>
-                <button onClick={goToListTrip}>ListTrip</button>
-                <button onClick={goToLogin}>Login</button>
+                <BotaoLista onClick={goToListTrip}>LISTA DE VIAGENS</BotaoLista>
+                <BotaoLogin onClick={goToLogin}>Login</BotaoLogin>
             </ContainerHome>
         </div>
     )
