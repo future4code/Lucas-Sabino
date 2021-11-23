@@ -216,10 +216,7 @@ WHERE name LIKE "%g%" OR name LIKE "%G%";
 ### d. Escreva uma query com os atores que tenham a letra "a" ou "A" ou "g" ou "G" no nome e o salário entre R$350.000,00 e R$900.000,00
 
 ```sh
-SELECT * FROM Actor
-WHERE 
-	(name LIKE "%g%" OR name LIKE "%G%" OR name LIKE "%a%" OR name LIKE "%A%")
-  AND salary BETWEEN 350000 AND 900000;
+SELECT * FROM Actor WHERE (name LIKE "%g%" OR name LIKE "%G%" OR name LIKE "%a%" OR name LIKE "%A%") AND salary BETWEEN 350000 AND 900000;
 ```
 
 # Questão 5
