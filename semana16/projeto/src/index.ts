@@ -79,3 +79,71 @@ app.get("/users/:id", async (req, res) => {
         res.status(400).send({message: "error.message"})
     }
 }) 
+
+const editUser = async (id: number, name: string, nickname: string): Promise<any> => {
+    await connection('User')
+    .update({
+        name: name,
+        nickname: nickname,
+    }).where("id", id)
+}
+
+app.put('/users/edit/:id', async (req,res) => {
+    try {
+        const id = Number(req.params.id)
+        const {name, nickname} = req.body
+        
+        if(!name || !nickname){
+            throw new Error('Campos não podem ficar vazios.')
+        }
+        
+        await editUser(id, name, nickname)
+
+        res.status(200).send("Usuário atualizado")
+    } catch (error:any) {
+        res.status(400).send({message: error.message})
+    }
+})
+
+const createTask = async (title: string, description: string, limit_date: string, creator_user_id: string): Promise<any> => {
+    await connection("Task")
+    .insert({
+        title: title,
+        description: description,
+        limit_date: limit_date,
+        creator_user_id: creator_user_id
+    })
+}
+
+app.post('/task', async (req,res) => {
+    try {
+        const {title, description, limit_date, creator_user_id} = req.body
+
+        if(!title || !description || !limit_date || !creator_user_id){
+            throw new Error("Algum campo vazio")
+        }
+        await createTask(title, description, limit_date, creator_user_id)
+
+        res.status(200).send("Tarefa criada")
+    } catch (error:any) {
+        res.status(400).send({message: error.message})
+    }
+})
+
+const getTaskById = async (id: number): Promise<any> => {
+    const result = await connection.raw(`
+        SELECT * FROM Task WHERE id = "${id}"
+    `)
+    return result[0]
+}
+
+app.get('/task/:id', async (req, res) => {
+    try {
+        const id = Number(req.params.id)
+        const taskId = await getTaskById(id)
+
+        res.status(200).send(taskId)
+    } catch (error:any) {
+        res.status(400).send({message: error.message})
+    }
+})
