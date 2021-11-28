@@ -58,3 +58,24 @@ app.post("/users", async (req,res) => {
         res.status(400).send({message: "error.message"})
     }
 });
+
+const getUser = async (id: number): Promise<any> => {
+    const result = await connection.raw(`
+        SELECT id, nickname FROM User WHERE id = "${id}"
+    `)
+    return result[0]
+}
+
+app.get("/users/:id", async (req, res) => {
+    try {
+        const id = Number(req.params.id)
+        const userByID = await getUser(id)
+        console.log(id, userByID)
+        if(userByID.length === 0){
+            throw new Error("Id inexistente")
+        }
+        res.status(200).send(userByID)
+    } catch (error:any) {
+        res.status(400).send({message: "error.message"})
+    }
+}) 
