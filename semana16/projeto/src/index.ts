@@ -105,7 +105,7 @@ app.put('/users/edit/:id', async (req,res) => {
     }
 })
 
-const createTask = async (title: string, description: string, limit_date: string, creator_user_id: string): Promise<any> => {
+const createTask = async (title: string, description: string, limit_date: Date, creator_user_id: string): Promise<any> => {
     await connection("Task")
     .insert({
         title: title,
@@ -122,7 +122,12 @@ app.post('/task', async (req,res) => {
         if(!title || !description || !limit_date || !creator_user_id){
             throw new Error("Algum campo vazio")
         }
-        await createTask(title, description, limit_date, creator_user_id)
+
+        const [day, month, year] = limit_date.split("/")
+        
+        const limitDate: Date = new Date(`${year}-${month}-${day}`)
+
+        await createTask(title, description, limitDate, creator_user_id)
 
         res.status(200).send("Tarefa criada")
     } catch (error:any) {
