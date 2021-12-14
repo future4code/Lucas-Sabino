@@ -6,15 +6,25 @@ dotenv.config()
 
 const expiresIn = "1min"
 
-export const createToken = (id: authToken): string => {
-  const token = jwt.sign(
-    {
-      id,
-    },
-    process.env.JWT_KEY as string,
-    {
-      expiresIn
+export class CreateToken {
+  generateToken = (payload: authToken) => {
+    const token = jwt.sign(
+      {
+        payload,
+      },
+      process.env.JWT_KEY as string,
+      {
+        expiresIn
+      }
+      );
+      return token;
     }
-  );
-  return token;
-}
+
+    getData = (token: string): authToken => {
+      const payload = jwt.verify(token, process.env.JWT_KEY as string) as any;
+      const result = {
+        id: payload.id,
+      };
+      return result;
+    };
+  }

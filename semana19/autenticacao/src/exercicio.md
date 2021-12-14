@@ -69,4 +69,29 @@ export class createToken{
 
 # Exercício 4 
 
-### 
+> funções implementadas no código
+
+# Exercício 5 
+
+### a. Crie uma função que retorne as informações de um usuário a partir do email
+```
+import { connection } from "../data/connection"
+
+export const getUserByEmail = async (email: string): Promise<any> => {
+    const result = await connection
+    .select("*")
+    .from("usuarios")
+    .where({ email });
+
+    return result[0]
+}
+```
+
+# Exercício 6
+> resolvido no código
+
+# Exercício 7
+
+### a. O que a linha as any faz? Por que precisamos usá-la ali?
+> Seta o tipo do retorno como "any" ou qualquer ja que está fazendo uma comparação do jwt.
+
